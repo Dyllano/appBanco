@@ -1,0 +1,113 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(to right, #f8e1f4, #e0eafc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column; /* Para centrar verticalmente el contenido */
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+    font-size: 3em;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #007BFF, #00C6FF); /* Gradiente de fondo */
+    -webkit-background-clip: text;
+    color: transparent; /* Hace que el texto sea transparente para mostrar el gradiente */
+  }
+  
+  .signup-container,
+  .login-container {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+    margin: auto; /* Centra el contenedor horizontalmente */
+  }
+  
+  .menu-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px; /* Espacio entre el menú y el contenido */
+  }
+  
+  .menu-container button {
+    margin: 10px;
+    padding: 15px 30px;
+    font-size: 16px;
+    border: 2px solid #007BFF;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  .menu-container button:hover {
+    background-color: white;
+    color: #007BFF;
+    border-color: #007BFF;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form-group button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #28A745;
+    background-color: #28A745;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  .form-group button:hover {
+    background-color: white;
+    color: #28A745;
+    border-color: #28A745;
+  }
+  
+  .form-group.message {
+    margin-top: 20px;
+    color: #dc3545;
+    font-weight: bold;
+  }
+  
+  .form-group button.signup-button {
+    margin-top: 10px;
+    border-color: #17A2B8;
+    background-color: #17A2B8;
+  }
+  
+  .form-group button.signup-button:hover {
+    background-color: white;
+    color: #17A2B8;
+    border-color: #17A2B8;
+  }
+  

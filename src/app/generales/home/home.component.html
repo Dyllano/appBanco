@@ -1,0 +1,34 @@
+<p>home works!</p>
+
+
+<div *ngIf="this.lbolUserLogu; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+  <div>
+        <label>eqtiqueta 1</label>
+  </div>     
+  <router-outlet />
+</ng-template>
+<ng-template #elseBlock>
+    <div>
+        <label>eqtiqueta 2</label>
+    </div>
+</ng-template>
+
+<br>
+
+
+<p>Hoy es {{fecha | date}}</p>
+<p>Hoy es {{fecha | date:"dd/MM/yy"}}</p>
+<p>Hoy es {{fecha | date:"ddYMMM/yyyy"}}</p>
+
+<p>Hoy es {{fecha | json}}</p>
+
+<p>Valor {{numValor}}</p>
+<p>Valor Moneda {{numValor | currency}}</p>
+
+<p>Valor {{numPerc}}</p>
+<p>Valor porcentaje {{numPerc | percent}}</p>
+
+<p>Texto {{strTexto}}</p>
+<p>Texto minuscula {{strTexto | lowercase}}</p>
+<p>Texto mayuscula {{strTexto | uppercase}}</p>

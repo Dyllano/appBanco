@@ -1,0 +1,23 @@
+
+<br>
+<button type="button" (click)="fnGetAccounts()">Get Accounts</button>
+<br>
+<br>
+<table *ngIf="lAccounts">
+    <tr *ngFor="let row of lAccounts">
+      <th>{{ row.NumeCuen }}</th>
+      <th>{{ row.NombCuen }}</th>
+    </tr>
+</table>
+<br>
+<br>
+<div>
+    <div id="idgridAccounts" class="grid">
+        <angular-slickgrid gridId="gridAccounts"
+            [columnDefinitions]="CDAccounts"
+            [gridOptions]="GPAccounts"
+            [dataset]="dsAccounts">
+        </angular-slickgrid>
+    </div>
+</div>
+
