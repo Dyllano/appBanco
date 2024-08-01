@@ -1,5 +1,19 @@
 <p>profile works!</p>
 
+<br>
+<span>Codigo usuario:</span>
+<input type="text" name="codiUseer" [(ngModel)] ="codiUSer" (keyup)="fnValidProf()"/>
+<br>
+<span>Codigo usuario 2:</span>
+<input type="text" name="codiUseer2" [(ngModel)] ="codiUSer2"/>
+<br>
+<span>Nombre usuario:</span>
+<input type="text" name="nombreUser" [(ngModel)] ="nombreUser"/>
+<br>
+<span>Password usuario:</span>
+
+<input type="text" name="password" [(ngModel)] ="password"/>
+
 
 <p [ngStyle]="{'background': lstrColor == 'white' ? 'white' : 'blue'}">Etiqueta de atributo</p>
 

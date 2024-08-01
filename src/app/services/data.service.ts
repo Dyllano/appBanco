@@ -18,6 +18,8 @@ export class DataService {
   apiUrlGetAccounts: string = 'https://erpapipruebas.azurewebsites.net/api/values/GetAccounts';
   //Función para validar un usuario
 
+  apiUrlValiProf: string = 'https://erpapipruebas.azurewebsites.net/api/values/valiprof';
+
 
   fnValiUser(CodiUser: string, PassUser: string): Observable<any>{
 
@@ -35,6 +37,15 @@ export class DataService {
     User.push({'CodiUser':CodiUser});
 
     return this.http.post(this.apiUrlGetAccounts,User,httpOptions).pipe(tap((res: any) => {
+      return res;
+    }));
+  }
+
+  fnValidProfile(CodiUser: string){
+    let UserInfo: any[] = [];
+    UserInfo.push({'CodiUser':CodiUser});
+
+    return this.http.post(this.apiUrlValiProf,UserInfo,httpOptions).pipe(tap((res: any) => {
       return res;
     }));
   }

@@ -4,6 +4,7 @@ import { AngularSlickgridModule, ContainerService } from 'angular-slickgrid'
 
 import { AccountsRoutingModule } from './accounts-routing.module';
 import { AccountsComponent } from './accounts.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { AccountsComponent } from './accounts.component';
   imports: [
     CommonModule,
     AccountsRoutingModule,
+    FormsModule,
     AngularSlickgridModule.forRoot({
       enableCellNavigation: true,
       autoHeight: false,

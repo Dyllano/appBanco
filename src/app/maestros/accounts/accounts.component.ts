@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { ServiceService } from '../../services/service.service';
 import { Column, GridOption } from 'angular-slickgrid';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-accounts',
@@ -16,7 +17,9 @@ export class AccountsComponent implements OnInit{
   GPAccounts: GridOption = {};
   dsAccounts: any[] = [];
 
-  lAccounts: any[] = [];
+  accounts: any[] = [];
+
+  lstrUser: string ="";
 
 
   ngOnInit(){
@@ -35,7 +38,7 @@ export class AccountsComponent implements OnInit{
 
   fnGetAccounts(){
     this.data.fnGetAccounts(this.service.lstrUser).subscribe({next: res => {
-        this.lAccounts = res;
+        this.accounts = res;
         this.dsAccounts = res;
     }})
   }

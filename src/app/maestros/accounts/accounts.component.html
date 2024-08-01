@@ -3,12 +3,19 @@
 <button type="button" (click)="fnGetAccounts()">Get Accounts</button>
 <br>
 <br>
-<table *ngIf="lAccounts">
-    <tr *ngFor="let row of lAccounts">
-      <th>{{ row.NumeCuen }}</th>
-      <th>{{ row.NombCuen }}</th>
+
+<label>User: </label>
+<input type="text" maxlength="15" [(ngModel)]="lstrUser">
+
+<div class="accountList" *ngFor="let account of accounts">
+    <tr>
+        <th>ID: {{account.id}}</th>
+        <th>Codi User: {{account.CodiUser}}</th>
+        <th>Name: {{account.NumeCuen}}</th>
+        <th>NombCuen: {{account.NumeCuen}}</th>
     </tr>
-</table>
+</div>
+
 <br>
 <br>
 <div>
