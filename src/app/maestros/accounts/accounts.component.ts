@@ -82,12 +82,12 @@ export class AccountsComponent implements OnInit, OnChanges, AfterContentInit, A
 
   fnSaveAccount(){
 
-    if(this.lstrNombreCuenta == "" ){
+    if(this.lstrNombreCuenta == '' ){
       this.mensaje = "Nombre de cuenta está vacia"
       return;
     }
 
-    if(this.lstrNumeroCuenta == "" ){
+    if(this.lstrNumeroCuenta == '' ){
       this.mensaje = "Numero de cuenta está vacia"
       return;
     }

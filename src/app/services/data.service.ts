@@ -70,7 +70,7 @@ export class DataService {
 fnSaveAccount(CodiUser: string, nombreCuen: string, numbeCuen: string){
 
   let AccountInfo: any[] = [];
-  AccountInfo.push({'CodiUser':CodiUser, "NombCuen": nombreCuen, "NumeCuenta": numbeCuen});
+  AccountInfo.push({'CodiUser':CodiUser, "NombCuen": nombreCuen, "NumeCuen": numbeCuen});
 
   return this.http.post(this.apiUrlSaveAccount,AccountInfo,httpOptions).pipe(tap((res: any) => {
     console.log(res);

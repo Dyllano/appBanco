@@ -56,10 +56,10 @@ export class ProfileComponent {
   }
 
   fnValidProf(){
-    this.data.fnValidProfile(this.codiUSer).subscribe(
+    this.data.fnValidProfile(this.codiUSer2).subscribe(
       {next: res => {
-        this.nombreUser = res[0].nombreUser
-        this.password = res[0].password
+        this.nombreUser = res[0].NombUsua
+        this.password = res[0].PassUser
         console.log(res);
       }
       }
