@@ -37,7 +37,7 @@ export class ProfileComponent {
 
 
   ngOndestory(): void{
-    console.log("onDestory");
+    console.log("onDestroy");
   }
 
 

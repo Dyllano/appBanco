@@ -2,10 +2,10 @@
 
 <br>
 <span>Codigo usuario:</span>
-<input type="text" name="codiUseer" [(ngModel)] ="codiUSer" (keyup)="fnValidProf()"/>
+<input type="text" name="codiUser" [(ngModel)] ="codiUSer" (keyup)="fnValidProf()"/>
 <br>
 <span>Codigo usuario 2:</span>
-<input type="text" name="codiUseer2" [(ngModel)] ="codiUSer2" />
+<input type="text" name="codiUser2" [(ngModel)] ="codiUSer2" />
 <br>
 <span>Nombre usuario:</span>
 <input type="text" name="nombreUser" [(ngModel)] ="nombreUser"/>
@@ -14,11 +14,6 @@
 
 <input type="text" name="password" [(ngModel)] ="password"/>
 
+<button type="button" (click)="fnGetAccounts()">Get Profiles</button>
 
-<p [ngStyle]="{'background': lstrColor == 'white' ? 'white' : 'blue'}">Etiqueta de atributo</p>
-
-<button type="button" (click)="fnFondoBlanco()">Fondo Blanco</button>
-<button type="button" (click)="fnFondoAzul()">Fondo Azul</button>
-
-<p appMydirective>Mi directiva</p>
 

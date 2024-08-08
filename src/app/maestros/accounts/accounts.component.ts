@@ -3,6 +3,7 @@ import { DataService } from '../../services/data.service';
 import { ServiceService } from '../../services/service.service';
 import { Column, GridOption } from 'angular-slickgrid';
 import { FormsModule } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-accounts',
@@ -11,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class AccountsComponent implements OnInit, OnChanges, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked{
 
-  constructor(private data: DataService, private service: ServiceService){}
+  constructor(private data: DataService, public service: ServiceService){}
 
   CDAccounts: Column[] = [];
   GPAccounts: GridOption = {};
@@ -21,6 +22,14 @@ export class AccountsComponent implements OnInit, OnChanges, AfterContentInit, A
 
   lstrUser: string ="";
 
+  lstrNombreCuenta: string = "";
+  lstrNumeroCuenta: string = "";
+
+  mensaje: string = '';
+
+  bPreguntar: boolean = false;
+
+  public subscription: Subscription = new Subscription();
 
   ngOnInit(){
     this.GPAccounts = {
@@ -69,6 +78,48 @@ export class AccountsComponent implements OnInit, OnChanges, AfterContentInit, A
 
   ngAfterViewChecked(): void {
     console.log('ngAfterViewChecked');
+  }
+
+  fnSaveAccount(){
+
+    if(this.lstrNombreCuenta == "" ){
+      this.mensaje = "Nombre de cuenta está vacia"
+      return;
+    }
+
+    if(this.lstrNumeroCuenta == "" ){
+      this.mensaje = "Numero de cuenta está vacia"
+      return;
+    }
+
+    this.bPreguntar = true;
+
+    this.subscription = this.service.ResObserver$.subscribe((res: any) => {
+      this.subscription.unsubscribe();
+      this.bPreguntar = false;
+        if(res == "Sí"){
+          this.fnDoSaveAccount();
+        }
+    }
+    );
+  }
+
+  fnDoSaveAccount(){
+    this.data.fnSaveAccount(this.service.gCodUser, this.lstrNombreCuenta, this.lstrNumeroCuenta).subscribe({next: res => {
+
+
+      if(res[0].Status != 'Error'){
+        this.mensaje = "Guardado Correctamente"
+      }else{
+        this.mensaje = "Error:" + res[0].Error;
+      }
+
+      this.accounts = res;
+      this.dsAccounts = res;
+      this.lstrUser = this.service.gCodUser;
+      this.fnGetAccounts();
+  }})
+    
   }
 
 

@@ -13,7 +13,6 @@
         <label>eqtiqueta 2</label>
     </div>
 </ng-template>
-
 <br>
 
 
@@ -32,3 +31,19 @@
 <p>Texto {{strTexto}}</p>
 <p>Texto minuscula {{strTexto | lowercase}}</p>
 <p>Texto mayuscula {{strTexto | uppercase}}</p>
+
+
+<ng-template #mytemplate>
+    <div>
+      <p>Esta es mi plantilla</p>
+    </div>
+</ng-template>
+
+<ng-container *ngTemplateOutlet="mytemplate"></ng-container>
+<ng-container *ngTemplateOutlet="mytemplate"></ng-container>
+<ng-container *ngTemplateOutlet="mytemplate"></ng-container>
+
+<div>
+  <button type="button" (click)="fnActiveObserver()">Activar observable</button>
+  <button type="button" (click)="fnTestObserver()">Probar observable</button>
+</div>

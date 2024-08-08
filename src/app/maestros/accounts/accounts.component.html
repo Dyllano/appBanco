@@ -1,11 +1,41 @@
 
-<br>
-<button type="button" (click)="fnGetAccounts()">Get Accounts</button>
-<br>
-<br>
 
+<p>
+    {{mensaje}}
+</p>
+
+<div *ngIf="this.bPreguntar; then preguntar"></div>
+
+<ng-template #preguntar>
+    <p>Confirma que desea guardar?</p>
+
+    <button type="button" (click)="service.fnSetObserver('Si')">Sí</button>
+    <button type="button" (click)="service.fnSetObserver('No')">No</button>
+
+</ng-template>
+
+
+<div class="input-group mb-3">
 <label>User: </label>
-<input type="text" maxlength="15" [(ngModel)]="lstrUser">
+<input type="text" class="form-control" maxlength="15" [(ngModel)]="lstrUser">
+<button type="button" (click)="fnGetAccounts()" class="btn btn-primary">Get Accounts</button>
+</div>
+
+<div>
+
+<div>
+    <span>Nombre Cuenta</span>
+    <input type="nombreCuenta" placeholder="Nombre Cuenta" [ngModel]="lstrNombreCuenta">
+</div>
+
+<div>
+    <span>Numero Cuenta</span>
+    <input type="numeroCuenta" placeholder="Numero Cuenta" [ngModel]="lstrNumeroCuenta">
+</div>
+
+<button type="button" (click)="fnSaveAccount()" class="btn btn-primary">Save Account</button>
+
+</div>
 
 <div class="accountList" *ngFor="let account of accounts">
     <tr>

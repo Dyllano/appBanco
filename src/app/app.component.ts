@@ -16,16 +16,24 @@ export class AppComponent {
   lstrUser: string = 'Robin';
   lstrPass: string = '1234';
   lstrMessag: string = '';
+  lbolUseLogTem: boolean = false;
 
   constructor(private apiService: DataService, public service: ServiceService, private router: Router){}
+
+  ngDoCheck(): void{
+    console.log('docheck');
+    this.lbolUserLogu = this.lbolUseLogTem;
+  }
 
   fnLogIN(){
     this.apiService.fnValiUser(this.lstrUser,this.lstrPass).subscribe({next: res =>{
       if (res[0].Status == 'OK'){
-        this.lbolUserLogu = true;
+        //this.lbolUserLogu = true;
+        this.lbolUseLogTem = true;
         this.lstrMessag = '';
         this.service.lstrUser = this.lstrUser;
         this.router.navigate(['home']);
+        this.service.gCodUser = this.lstrUser;
       }else{
         this.lbolUserLogu = false;
         this.lstrMessag = res[0].NombUsua;
@@ -34,7 +42,7 @@ export class AppComponent {
   }
 
   fnLogOut(){
-    this.lbolUserLogu = false;
+    this.lbolUseLogTem = false;
   }
 
   fnSignUp(){

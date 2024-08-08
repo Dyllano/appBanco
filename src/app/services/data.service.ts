@@ -23,6 +23,9 @@ export class DataService {
 
   apiUrlValiProf: string = 'https://erpapipruebas.azurewebsites.net/api/values/valiprof';
 
+  apiUrlSaveAccount: string = 'https://erpapipruebas.azurewebsites.net/api/values/SaveAccount';
+
+
 
   fnValiUser(CodiUser: string, PassUser: string): Observable<any>{
 
@@ -63,5 +66,18 @@ export class DataService {
       return res;
     }));
   }
+
+fnSaveAccount(CodiUser: string, nombreCuen: string, numbeCuen: string){
+
+  let AccountInfo: any[] = [];
+  AccountInfo.push({'CodiUser':CodiUser, "NombCuen": nombreCuen, "NumeCuenta": numbeCuen});
+
+  return this.http.post(this.apiUrlSaveAccount,AccountInfo,httpOptions).pipe(tap((res: any) => {
+    console.log(res);
+    return res;
+  }));
+
+}
+
 
 }
