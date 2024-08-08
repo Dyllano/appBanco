@@ -20,6 +20,22 @@ export class ProfileComponent {
   constructor(private data: DataService){}
 
 
+  ngOnInit(): void{
+    console.log('onInit');
+    const evKeyUp = fromEvent(document, 'keyup');
+    const result = evKeyUp.pipe(debounceTime(300));
+    result.subscribe({next: (x) => {
+      var target = x.target as HTMLInputElement;
+
+      if (target.name == 'codiUser2'){
+        console.log(target);
+        this.fnValidProf();
+      }
+    }
+    })
+  }
+
+
   ngOndestory(): void{
     console.log("onDestory");
   }

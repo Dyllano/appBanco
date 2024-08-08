@@ -16,6 +16,9 @@ export class DataService {
 
   apiUrlValiUser: string = 'https://erpapipruebas.azurewebsites.net/api/values/valiuser';
   apiUrlGetAccounts: string = 'https://erpapipruebas.azurewebsites.net/api/values/GetAccounts';
+
+  apiUrlSignUp: string = 'https://erpapipruebas.azurewebsites.net/api/values/signup';
+
   //Función para validar un usuario
 
   apiUrlValiProf: string = 'https://erpapipruebas.azurewebsites.net/api/values/valiprof';
@@ -46,6 +49,17 @@ export class DataService {
     UserInfo.push({'CodiUser':CodiUser});
 
     return this.http.post(this.apiUrlValiProf,UserInfo,httpOptions).pipe(tap((res: any) => {
+      return res;
+    }));
+  }
+
+
+  fnSignUp(CodiUser: string, nombreUser: string, password: string){
+    let UserInfo: any[] = [];
+    UserInfo.push({'CodiUser':CodiUser, "NombUser": nombreUser, "PassUser": password});
+
+    return this.http.post(this.apiUrlSignUp,UserInfo,httpOptions).pipe(tap((res: any) => {
+      console.log(res);
       return res;
     }));
   }

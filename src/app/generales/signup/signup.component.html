@@ -1,5 +1,26 @@
 <p>signup works!</p>
 
+
+
 <div>
-    <button type="button" (click)="fnCancel()">Cancelar</button>  
+    <div>
+        <label>Codigo de usuarios:</label>
+        <input type="text" maxlength="15" class="" name="CodiUser" [(ngModel)]="codiUser">
+    </div>
+    <div>
+        <label>Nombre de usuarios:</label>
+        <input type="text" maxlength="15" class="" name="NombUser" [(ngModel)]="nombreUser">
+    </div>    
+    <div>
+        <label>Password Usuario:</label>
+        <input type="text" maxlength="15" class="" name="NombUser" [(ngModel)]="password">
+    </div>      
+    <button type="button" (click)="fnSignUp()">Sign Up</button>     
+    <div>
+        <label>{{lblMensaje}}</label>
+    </div>
+</div>
+
+<div>
+    <button type="button" (click)="fnCancelSignUp()">Cancelar</button>  
 </div>
