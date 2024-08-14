@@ -1,19 +1,26 @@
-<p>profile works!</p>
-
-<br>
-<span>Codigo usuario:</span>
-<input type="text" name="codiUser" [(ngModel)] ="codiUSer" (keyup)="fnValidProf()"/>
-<br>
-<span>Codigo usuario 2:</span>
-<input type="text" name="codiUser2" [(ngModel)] ="codiUSer2" />
-<br>
-<span>Nombre usuario:</span>
-<input type="text" name="nombreUser" [(ngModel)] ="nombreUser"/>
-<br>
-<span>Password usuario:</span>
-
-<input type="text" name="password" [(ngModel)] ="password"/>
-
-<button type="button" (click)="fnGetAccounts()">Get Profiles</button>
-
-
+<div class="container mt-4">
+    <h2 class="mb-4">Profile Information</h2>
+  
+    <div class="form-group mb-3">
+      <label for="codiUser" class="form-label">Código usuario:</label>
+      <input type="text" id="codiUser" name="codiUser" class="form-control" [(ngModel)]="codiUSer" (keyup)="fnValidProf()" placeholder="Ingresa tu código de usuario">
+    </div>
+  
+    <div class="form-group mb-3">
+      <label for="codiUser2" class="form-label">Código usuario 2:</label>
+      <input type="text" id="codiUser2" name="codiUser2" class="form-control" [(ngModel)]="codiUSer2" placeholder="Ingresa el segundo código de usuario">
+    </div>
+  
+    <div class="form-group mb-3">
+      <label for="nombreUser" class="form-label">Nombre usuario:</label>
+      <input type="text" id="nombreUser" name="nombreUser" class="form-control" [(ngModel)]="nombreUser" placeholder="Ingresa tu nombre de usuario">
+    </div>
+  
+    <div class="form-group mb-4">
+      <label for="password" class="form-label">Password usuario:</label>
+      <input type="password" id="password" name="password" class="form-control" [(ngModel)]="password" placeholder="Ingresa tu contraseña">
+    </div>
+  
+    <button type="button" class="btn btn-primary" (click)="fnGetAccounts()">Get Profiles</button>
+  </div>
+  

@@ -1,49 +1,62 @@
-<p>home works!</p>
+<div class="container mt-4">
 
+  <h2 class="mb-4">Home Page</h2>
 
-<div *ngIf="this.lbolUserLogu; then thenBlock else elseBlock"></div>
-<ng-template #thenBlock>
-  <div>
-        <label>eqtiqueta 1</label>
-  </div>     
-  <router-outlet />
-</ng-template>
-<ng-template #elseBlock>
-    <div>
-        <label>eqtiqueta 2</label>
+  <div *ngIf="lbolUserLogu; then thenBlock else elseBlock"></div>
+
+  <ng-template #thenBlock>
+    <div class="alert alert-success">
+      <label>Etiqueta 1</label>
     </div>
-</ng-template>
-<br>
+    <router-outlet></router-outlet>
+  </ng-template>
 
+  <ng-template #elseBlock>
+    <div class="alert alert-warning">
+      <label>Etiqueta 2</label>
+    </div>
+  </ng-template>
 
-<p>Hoy es {{fecha | date}}</p>
-<p>Hoy es {{fecha | date:"dd/MM/yy"}}</p>
-<p>Hoy es {{fecha | date:"ddYMMM/yyyy"}}</p>
+  <hr class="my-4">
 
-<p>Hoy es {{fecha | json}}</p>
+  <h4>Fechas</h4>
+  <p>Hoy es: {{fecha | date}}</p>
+  <p>Hoy es: {{fecha | date:"dd/MM/yy"}}</p>
+  <p>Hoy es: {{fecha | date:"dd MMMM yyyy"}}</p>
+  <p>Fecha en formato JSON: {{fecha | json}}</p>
 
-<p>Valor {{numValor}}</p>
-<p>Valor Moneda {{numValor | currency}}</p>
+  <hr class="my-4">
 
-<p>Valor {{numPerc}}</p>
-<p>Valor porcentaje {{numPerc | percent}}</p>
+  <h4>Valores</h4>
+  <p>Valor numérico: {{numValor}}</p>
+  <p>Valor en moneda: {{numValor | currency}}</p>
+  <p>Valor porcentaje: {{numPerc | percent}}</p>
 
-<p>Texto {{strTexto}}</p>
-<p>Texto minuscula {{strTexto | lowercase}}</p>
-<p>Texto mayuscula {{strTexto | uppercase}}</p>
+  <hr class="my-4">
 
+  <h4>Texto</h4>
+  <p>Texto original: {{strTexto}}</p>
+  <p>Texto en minúsculas: {{strTexto | lowercase}}</p>
+  <p>Texto en mayúsculas: {{strTexto | uppercase}}</p>
 
-<ng-template #mytemplate>
-    <div>
+  <hr class="my-4">
+
+  <h4>Plantillas</h4>
+  <ng-template #mytemplate>
+    <div class="alert alert-info">
       <p>Esta es mi plantilla</p>
     </div>
-</ng-template>
+  </ng-template>
 
-<ng-container *ngTemplateOutlet="mytemplate"></ng-container>
-<ng-container *ngTemplateOutlet="mytemplate"></ng-container>
-<ng-container *ngTemplateOutlet="mytemplate"></ng-container>
+  <ng-container *ngTemplateOutlet="mytemplate"></ng-container>
+  <ng-container *ngTemplateOutlet="mytemplate"></ng-container>
+  <ng-container *ngTemplateOutlet="mytemplate"></ng-container>
 
-<div>
-  <button type="button" (click)="fnActiveObserver()">Activar observable</button>
-  <button type="button" (click)="fnTestObserver()">Probar observable</button>
+  <hr class="my-4">
+
+  <div class="d-flex justify-content-between">
+    <button type="button" class="btn btn-primary" (click)="fnActiveObserver()">Activar observable</button>
+    <button type="button" class="btn btn-secondary" (click)="fnTestObserver()">Probar observable</button>
+  </div>
+
 </div>

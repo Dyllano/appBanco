@@ -1,60 +1,62 @@
-
-
-<p>
-    {{mensaje}}
-</p>
-
-<div *ngIf="this.bPreguntar; then preguntar"></div>
-
-<ng-template #preguntar>
-    <p>Confirma que desea guardar?</p>
-
-    <button type="button" (click)="service.fnSetObserver('Sí')">Sí</button>
-    <button type="button" (click)="service.fnSetObserver('No')">No</button>
-
-</ng-template>
-
-
-<div class="input-group mb-3">
-<label>User: </label>
-<input type="text" class="form-control" maxlength="15" [(ngModel)]="lstrUser">
-<button type="button" (click)="fnGetAccounts()" class="btn btn-primary">Get Accounts</button>
-</div>
-
-<div>
-
-<div>
-    <span>Nombre Cuenta</span>
-    <input type="nombreCuenta" placeholder="Nombre Cuenta" [(ngModel)]="lstrNombreCuenta">
-</div>
-
-<div>
-    <span>Numero Cuenta</span>
-    <input type="numeroCuenta" placeholder="Numero Cuenta" [(ngModel)]="lstrNumeroCuenta">
-</div>
-
-<button type="button" (click)="fnSaveAccount()" class="btn btn-primary">Save Account</button>
-
-</div>
-
-<div class="accountList" *ngFor="let account of accounts">
-    <tr>
-        <th>ID: {{account.id}}</th>
-        <th>Codi User: {{account.CodiUser}}</th>
-        <th>Name: {{account.NumeCuen}}</th>
-        <th>NombCuen: {{account.NumeCuen}}</th>
-    </tr>
-</div>
-
-<br>
-<br>
-<div>
-    <div id="idgridAccounts" class="grid">
-        <angular-slickgrid gridId="gridAccounts"
-            [columnDefinitions]="CDAccounts"
-            [gridOptions]="GPAccounts"
-            [dataset]="dsAccounts">
-        </angular-slickgrid>
+<div class="container mt-4">
+    <p class="alert alert-info">{{mensaje}}</p>
+  
+    <div *ngIf="this.bPreguntar; then preguntar"></div>
+    
+    <ng-template #preguntar>
+      <div class="alert alert-warning">
+        <p>Confirma que desea guardar?</p>
+        <button type="button" class="btn btn-success me-2" (click)="service.fnSetObserver('Sí')">Sí</button>
+        <button type="button" class="btn btn-danger" (click)="service.fnSetObserver('No')">No</button>
+      </div>
+    </ng-template>
+  
+    <div class="input-group mb-3">
+      <span class="input-group-text">User</span>
+      <input type="text" class="form-control" maxlength="15" [(ngModel)]="lstrUser">
+      <button type="button" class="btn btn-primary" (click)="fnGetAccounts()">Get Accounts</button>
     </div>
-</div>
-
+  
+    <div class="mb-3">
+      <label for="nombreCuenta" class="form-label">Nombre Cuenta</label>
+      <input type="text" id="nombreCuenta" class="form-control" placeholder="Nombre Cuenta" [(ngModel)]="lstrNombreCuenta">
+    </div>
+  
+    <div class="mb-3">
+      <label for="numeroCuenta" class="form-label">Numero Cuenta</label>
+      <input type="text" id="numeroCuenta" class="form-control" placeholder="Numero Cuenta" [(ngModel)]="lstrNumeroCuenta">
+    </div>
+  
+    <button type="button" class="btn btn-primary mb-4" (click)="fnSaveAccount()">Save Account</button>
+  
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Codi User</th>
+            <th>Name</th>
+            <th>NombCuen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let account of accounts">
+            <td>{{account.id}}</td>
+            <td>{{account.CodiUser}}</td>
+            <td>{{account.NumeCuen}}</td>
+            <td>{{account.NombCuen}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div id="idgridAccounts" class="grid mt-4">
+      <angular-slickgrid 
+        gridId="gridAccounts"
+        [columnDefinitions]="CDAccounts"
+        [gridOptions]="GPAccounts"
+        [dataset]="dsAccounts">
+      </angular-slickgrid>
+    </div>
+  </div>
+  
