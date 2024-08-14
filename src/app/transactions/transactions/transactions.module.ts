@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { TransactionsRoutingModule } from './transactions-routing.module';
 import { TransactionsComponent } from './transactions.component';
+import { FormsModule } from '@angular/forms';
+import { AngularSlickgridModule } from 'angular-slickgrid';
 
 
 @NgModule({
@@ -10,8 +12,10 @@ import { TransactionsComponent } from './transactions.component';
     TransactionsComponent
   ],
   imports: [
+    AngularSlickgridModule.forRoot(),
     CommonModule,
-    TransactionsRoutingModule
+    TransactionsRoutingModule,
+    FormsModule
   ]
 })
 export class TransactionsModule { }

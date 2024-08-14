@@ -26,6 +26,8 @@ export class DataService {
   apiUrlSaveAccount: string = 'https://erpapipruebas.azurewebsites.net/api/values/SaveAccount';
 
 
+  apiUrlSaveTransactions: string = 'https://erpapipruebas.azurewebsites.net/api/values/SaveTran';
+
 
   fnValiUser(CodiUser: string, PassUser: string): Observable<any>{
 
@@ -79,5 +81,23 @@ fnSaveAccount(CodiUser: string, nombreCuen: string, numbeCuen: string){
 
 }
 
+fnSaveTransaction(type: string, numeroCuenta: string, amount: string, categoria: string, descripcion: string, estado: string){
+
+  let TransactionInfo: any[] = [];
+  TransactionInfo.push({
+    'Type': type,
+    'NumeCuen': numeroCuenta,
+    'Amount': amount,
+    'Categoria': categoria,
+    'Descripcion': descripcion,
+    'Estado': estado,
+    });
+
+  return this.http.post(this.apiUrlSaveTransactions,TransactionInfo,httpOptions).pipe(tap((res: any) => {
+    console.log(res);
+    return res;
+  }));
+
+}
 
 }

@@ -14,12 +14,12 @@
     <div *ngIf="this.lbolUserLogu; then thenBlock else elseBlock"></div>
     <ng-template #thenBlock>
       <div class="menu-container">
-        <button type="button" routerLink="/home">Home</button>
-        <button type="button" routerLink="/profile">Profile</button>
-        <button type="button" routerLink="/accounts">Accounts</button>
-        <button type="button" routerLink="/transactions">Transactions</button>  
-        <button type="button" routerLink="/dashboard">Dashboard</button>
-        <button type="button" (click)="fnLogOut()">Salir</button>  
+        <button type="button" class="btn btn-primary" routerLink="/home">Home</button>
+        <button type="button" class="btn btn-primary" routerLink="/profile">Profile</button>
+        <button type="button" class="btn btn-primary" routerLink="/accounts">Accounts</button>
+        <button type="button" class="btn btn-primary" routerLink="/transactions">Transactions</button>  
+        <button type="button" class="btn btn-primary" routerLink="/dashboard">Dashboard</button>
+        <button type="button" class="btn btn-primary" (click)="fnLogOut()">Salir</button>  
       </div>     
       <router-outlet />
     </ng-template>

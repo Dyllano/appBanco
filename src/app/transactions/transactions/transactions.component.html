@@ -1,1 +1,65 @@
-<p>transactions works!</p>
+<div class="container mt-4">
+    <h2 class="mb-4">Realizar Transacción</h2>
+
+    <div *ngIf="this.mensaje!=''; then alert"></div>
+    <ng-template #alert>
+        <div class="alert alert-primary" role="alert">{{mensaje}}</div>
+    </ng-template>
+
+    <div *ngIf="this.bPreguntar; then preguntar"></div>
+    <ng-template #preguntar>
+        <p>Confirma que desea guardar?</p>
+
+        <button type="button" (click)="service.fnSetObserver('si')" class="btn btn-primary">Si</button>
+        <button type="button" (click)="service.fnSetObserver('no')" class="btn btn-primary">No</button>
+    </ng-template>
+
+
+    <div class="mb-3">
+        <label for="tipo" class="form-label">Tipo</label>
+        <select id="tipo" class="form-select" aria-label="Tipo de transacción" [(ngModel)]="sTipo">
+            <option selected>Deposito</option>
+            <option value="Retiro">Retiro</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="numeroCuenta" class="form-label">Número de Cuenta</label>
+        <input id="numeroCuenta" name="numeroCuenta" type="text" class="form-control" placeholder="Número de Cuenta" [(ngModel)]="sNumeroCuenta">
+    </div>
+
+    <div class="mb-3">
+        <label for="amount" class="form-label">Cantidad</label>
+        <input id="amount" name="amount" type="number" class="form-control" placeholder="Cantidad" [(ngModel)]="sAmount">
+    </div>
+
+    <div class="mb-3">
+        <label for="categoria" class="form-label">Categoría</label>
+        <input id="categoria" name="categoria" type="text" class="form-control" placeholder="Categoría" [(ngModel)]="sCategoria">
+    </div>
+
+    <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripción</label>
+        <input id="descripcion" name="descripcion" type="text" class="form-control" placeholder="Descripción" [(ngModel)]="sDescripcion">
+    </div>
+
+    <div class="mb-4">
+        <label for="estado" class="form-label">Estado</label>
+        <select id="estado" class="form-select" aria-label="Estado de la transacción" [(ngModel)]="sEstado">
+            <option selected>Activo</option>
+            <option value="Inactivo">Inactivo</option>
+        </select>
+    </div>
+
+    <button type="button" (click)="fnSaveTransaction()" class="btn btn-primary w-100">Guardar Transacción</button>
+
+       <div id="demo-container" style="width: 100%;">
+    
+        <angular-slickgrid gridId="grid1" [gridOptions]="GOTransactions" [columnDefinitions]="columnDefinition" [dataset]="transactions">
+        </angular-slickgrid>
+
+    </div> 
+
+
+
+</div>
