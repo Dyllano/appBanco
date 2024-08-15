@@ -1,62 +1,85 @@
 <div class="container mt-4">
-
   <h2 class="mb-4">Home Page</h2>
 
   <div *ngIf="lbolUserLogu; then thenBlock else elseBlock"></div>
 
   <ng-template #thenBlock>
-    <div class="alert alert-success">
-      <label>Etiqueta 1</label>
-    </div>
-    <router-outlet></router-outlet>
+    <mat-card class="mb-4">
+      <mat-card-title>Etiqueta 1</mat-card-title>
+      <mat-card-content>
+        <router-outlet></router-outlet>
+      </mat-card-content>
+    </mat-card>
   </ng-template>
 
   <ng-template #elseBlock>
-    <div class="alert alert-warning">
-      <label>Etiqueta 2</label>
-    </div>
+    <mat-card class="mb-4">
+      <mat-card-title>Etiqueta 2</mat-card-title>
+    </mat-card>
   </ng-template>
 
-  <hr class="my-4">
+  <mat-tab-group>
+    <mat-tab label="Fechas">
+      <mat-card class="my-4">
+        <mat-card-title>Fechas</mat-card-title>
+        <mat-card-content>
+          <p>Hoy es: {{fecha | date}}</p>
+          <p>Hoy es: {{fecha | date:"dd/MM/yy"}}</p>
+          <p>Hoy es: {{fecha | date:"dd MMMM yyyy"}}</p>
+          <p>Fecha en formato JSON: {{fecha | json}}</p>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
+    
+    <mat-tab label="Valores">
+      <mat-card class="my-4">
+        <mat-card-title>Valores</mat-card-title>
+        <mat-card-content>
+          <p>Valor numérico: {{numValor}}</p>
+          <p>Valor en moneda: {{numValor | currency}}</p>
+          <p>Valor porcentaje: {{numPerc | percent}}</p>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
 
-  <h4>Fechas</h4>
-  <p>Hoy es: {{fecha | date}}</p>
-  <p>Hoy es: {{fecha | date:"dd/MM/yy"}}</p>
-  <p>Hoy es: {{fecha | date:"dd MMMM yyyy"}}</p>
-  <p>Fecha en formato JSON: {{fecha | json}}</p>
+    <mat-tab label="Texto">
+      <mat-card class="my-4">
+        <mat-card-title>Texto</mat-card-title>
+        <mat-card-content>
+          <p>Texto original: {{strTexto}}</p>
+          <p>Texto en minúsculas: {{strTexto | lowercase}}</p>
+          <p>Texto en mayúsculas: {{strTexto | uppercase}}</p>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
 
-  <hr class="my-4">
+    <mat-tab label="Plantillas">
+      <mat-card class="my-4">
+        <mat-card-title>Plantillas</mat-card-title>
+        <mat-card-content>
+          <ng-template #mytemplate>
+            <div class="alert alert-info">
+              <p>Esta es mi plantilla</p>
+            </div>
+          </ng-template>
+          
+          <ng-container *ngTemplateOutlet="mytemplate"></ng-container>
+          <ng-container *ngTemplateOutlet="mytemplate"></ng-container>
+          <ng-container *ngTemplateOutlet="mytemplate"></ng-container>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
 
-  <h4>Valores</h4>
-  <p>Valor numérico: {{numValor}}</p>
-  <p>Valor en moneda: {{numValor | currency}}</p>
-  <p>Valor porcentaje: {{numPerc | percent}}</p>
-
-  <hr class="my-4">
-
-  <h4>Texto</h4>
-  <p>Texto original: {{strTexto}}</p>
-  <p>Texto en minúsculas: {{strTexto | lowercase}}</p>
-  <p>Texto en mayúsculas: {{strTexto | uppercase}}</p>
-
-  <hr class="my-4">
-
-  <h4>Plantillas</h4>
-  <ng-template #mytemplate>
-    <div class="alert alert-info">
-      <p>Esta es mi plantilla</p>
-    </div>
-  </ng-template>
-
-  <ng-container *ngTemplateOutlet="mytemplate"></ng-container>
-  <ng-container *ngTemplateOutlet="mytemplate"></ng-container>
-  <ng-container *ngTemplateOutlet="mytemplate"></ng-container>
-
-  <hr class="my-4">
-
-  <div class="d-flex justify-content-between">
-    <button type="button" class="btn btn-primary" (click)="fnActiveObserver()">Activar observable</button>
-    <button type="button" class="btn btn-secondary" (click)="fnTestObserver()">Probar observable</button>
-  </div>
-
+    <mat-tab label="Acciones">
+      <mat-card class="my-4">
+        <mat-card-title>Acciones</mat-card-title>
+        <mat-card-content>
+          <div class="d-flex justify-content-between">
+            <button mat-raised-button color="primary" (click)="fnActiveObserver()">Activar observable</button>
+            <button mat-raised-button color="accent" (click)="fnTestObserver()">Probar observable</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
+  </mat-tab-group>
 </div>
